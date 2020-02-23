@@ -41,6 +41,6 @@ void addMengerSponge(Obj &obj, Vec3 centerPoint, float size, int &index){
 int main(){
     Obj obj;
     int index = 0;
-    addMengerSponge(obj, Vec3(0, 0, 0), 100, index); 
-    obj.output("test");
+    addMengerSponge(obj, Vec3(0, 0, 0), 10, index); 
+    obj.output("menger_sponge");
 }

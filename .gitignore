@@ -1,5 +1,8 @@
 .vscode/
+images/
 
 sierpinski_carpet.cpp
 heart.cpp
-quad.cpp
+
+*.obj
+*.exe
