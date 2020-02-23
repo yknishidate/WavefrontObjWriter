@@ -9,18 +9,15 @@ class Vertex{
     Vec3 normal;
 
 public:
-    Vertex(float x=0, float y=0, float z=0){
-        position = {x, y, z};
-        texCoord = {0, 0};
-        normal = {x, y, z};
-    }
-    void setPosition(float x, float y, float z){
+    Vertex(const float& x=0, const float& y=0, const float& z=0)
+        : position(x, y, z), texCoord(0, 0), normal(x, y, z){}
+    void setPosition(const float& x, const float& y, const float& z){
         position = {x, y, z};
     }
-    void setTexCoord(float x, float y){
+    void setTexCoord(const float& x, const float& y){
         texCoord = {x, y};
     }
-    void setNormal(float x, float y, float z){
+    void setNormal(const float& x, const float& y, const float& z){
         normal = {x, y, z};
     }
 
@@ -31,12 +28,12 @@ public:
 
 
 class Face{
-    int numIndices;
+    int32_t numIndices;
     Vec4i indices;
 
 public:
-    Face(int v0, int v1, int v2, int v3=-1){
-        indices = {v0, v1, v2, v3};
+    Face(const int32_t& v0, const int32_t& v1, const int32_t& v2, const int32_t& v3=-1)
+        : indices(v0, v1, v2, v3){
         if(v3 == -1) numIndices = 3;
         else         numIndices = 4;
     }
@@ -51,14 +48,14 @@ class Obj{
 private:
     std::vector<Vertex> vertices;
     std::vector<Face> faces;
-    int unusedVerticesCount;
+    int32_t unusedVerticesCount;
     bool texCoordEnabled;
     bool normalEnabled;
 
 public:
     Obj(): unusedVerticesCount(0), texCoordEnabled(false), normalEnabled(false){};
 
-    void output(std::string filename){
+    void output(const std::string& filename){
         std::ofstream file(filename + ".obj");
 
         file << "# WaveFront *.obj file" << std::endl;
@@ -149,23 +146,23 @@ public:
             }
         }
     }
-    void appendVertex(Vertex vertex){
+    void appendVertex(const Vertex& vertex){
         vertices.push_back(vertex);
         unusedVerticesCount++;
     }
-    void appendVertex(Vec3 vec){
+    void appendVertex(const Vec3& vec){
         vertices.push_back(Vertex(vec.x, vec.y, vec.z));
         unusedVerticesCount++;
     }
-    void appendVertex(float x, float y, float z){
+    void appendVertex(const float& x, const float& y, const float& z){
         vertices.push_back(Vertex(x, y, z));
         unusedVerticesCount++;
     }
-    void appendFace(Face face){
+    void appendFace(const Face& face){
         faces.push_back(face);
         unusedVerticesCount = 0;
     }
-    void appendFace(int v0, int v1, int v2, int v3=-1){
+    void appendFace(const int32_t& v0, const int32_t& v1, const int32_t& v2, const int32_t& v3=-1){
         faces.push_back(Face(v0, v1, v2, v3));
         unusedVerticesCount = 0;
     }
@@ -187,11 +184,11 @@ public:
         }
     }
     
-    void enableTextureCoordinates(bool arg = true){
+    void enableTextureCoordinates(const bool& arg = true){
         texCoordEnabled = arg;
     }
 
-    void enableNormal(bool arg = true){
+    void enableNormal(const bool& arg = true){
         normalEnabled = arg;
     }
 };
