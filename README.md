@@ -1,7 +1,7 @@
 Wavefront Obj Writer
 ===
 
-A simple Wavefront OBJ creation library.
+A simple Wavefront OBJ writer.
 
 
 ## 説明
