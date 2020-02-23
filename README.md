@@ -17,7 +17,7 @@ project_folder
 └ vector.h  
 ```
 
-実際のライブラリの使用方法は`Documentation.md`に記載しています。
+実際のライブラリの使用方法は <a href="https://github.com/nishidate-yuki/WavefrontObjWriter/blob/master/Documentation.md"> Documentation.md </a> に記載しています。
 
 ## サンプル
 
