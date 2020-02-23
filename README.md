@@ -17,7 +17,24 @@ project_folder
 └ vector.h  
 ```
 
-実際のライブラリの使用方法は <a href="https://github.com/nishidate-yuki/WavefrontObjWriter/blob/master/Documentation.md"> Documentation.md </a> に記載しています。
+例えば、もっとも基本的な四角ポリゴンを作るには以下のようにします。
+
+```cpp
+#include "obj.h"
+
+int main(){
+    Obj obj;
+    obj.appendVertex(  0,   0, 0);
+    obj.appendVertex(100,   0, 0);
+    obj.appendVertex(100, 100, 0);
+    obj.appendVertex(  0, 100, 0);
+    obj.closeFace();
+
+    obj.output("quad");
+}
+```
+
+詳細なライブラリの使用方法は <a href="https://github.com/nishidate-yuki/WavefrontObjWriter/blob/master/Documentation.md"> Documentation.md </a> に記載しています。
 
 ## サンプル
 
