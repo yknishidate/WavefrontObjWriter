@@ -43,7 +43,7 @@ Please see <a href="https://github.com/nishidate-yuki/WavefrontObjWriter/blob/ma
 
 詳細なライブラリの使用方法は <a href="https://github.com/nishidate-yuki/WavefrontObjWriter/blob/master/Documentation.md"> Documentation.md </a> に記載しています。
 
-## サンプル
+## Sample
 With recursion, you can easily create interesting shapes.
 Some sample files are included in `samples` directory.
 
