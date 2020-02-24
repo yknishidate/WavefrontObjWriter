@@ -23,6 +23,7 @@ void addCube(Obj &obj, Vec3 centerPoint, float size, int &index){
 }
 
 void addMengerSponge(Obj &obj, Vec3 centerPoint, float size, int &index){
+    
     if(size < 1) return;
 
     for(int i=-1; i<2; i++){
@@ -36,6 +37,7 @@ void addMengerSponge(Obj &obj, Vec3 centerPoint, float size, int &index){
             }
         }
     }
+
 }
 
 int main(){

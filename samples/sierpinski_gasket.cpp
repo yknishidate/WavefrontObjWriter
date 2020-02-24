@@ -18,7 +18,6 @@ void addSierpinskiGasket(Obj& obj, Vec2 startPoint = Vec2(0, 0), float len = 100
 
     // v2 (left top)
     x = startPoint.x + len/4.0;
-    y = startPoint.y + len * std::sqrt(3)/4.0;
     obj.appendVertex(x, y, 0);
     Vec2 nextPoint1(x, y);
 
@@ -28,7 +27,6 @@ void addSierpinskiGasket(Obj& obj, Vec2 startPoint = Vec2(0, 0), float len = 100
     addSierpinskiGasket(obj, nextPoint0, len/2.0, minimum);
     addSierpinskiGasket(obj, nextPoint1, len/2.0, minimum);
 
-    return;
 }
 
 int main(){
