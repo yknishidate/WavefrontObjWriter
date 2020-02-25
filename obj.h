@@ -216,4 +216,15 @@ public:
         normalEnabled = arg;
     }
 };
+
+class LineObj{
+private:
+    std::vector<Vertex> vertices;
+    std::vector<Line> lines;
+    std::int32_t unusedVerticesCount;
+
+public:
+    LineObj(): unusedVerticesCount(0){};
+};
+
 }
