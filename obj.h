@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include "vector.h"
 
+namespace wow{
 class Vertex{
     Vec3 position;
     Vec2 texCoord;
@@ -192,3 +193,4 @@ public:
         normalEnabled = arg;
     }
 };
+}

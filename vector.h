@@ -6,6 +6,8 @@
 #include <cmath>
 #include <cfloat>
 
+namespace wow{
+
 class Vec2{
 public:
     float x, y;
@@ -457,3 +459,4 @@ public:
         return os;
     }
 };
+}

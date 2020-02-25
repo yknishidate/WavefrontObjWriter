@@ -1,6 +1,7 @@
 #define PI 3.14159265359
 #include <cmath>
 #include "../obj.h"
+using namespace wow;
 
 Obj createQuad(Vec3 startPoint, float len){
     Obj obj;

@@ -2,6 +2,7 @@
 
 #include <cmath>
 #include "../obj.h"
+using namespace wow;
 
 void addCube(Obj &obj, Vec3 centerPoint, float size, int &index){
     obj.appendVertex(centerPoint + Vec3(-1.0, -1.0, -1.0) * size);
