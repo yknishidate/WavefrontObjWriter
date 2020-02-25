@@ -7,7 +7,7 @@
 #include "obj.h"
 
 int main(){
-    Obj obj;
+    wow::Obj obj;
     obj.appendVertex(  0,   0, 0);
     obj.appendVertex(100,   0, 0);
     obj.appendVertex(100, 100, 0);
@@ -30,9 +30,9 @@ int main(){
 Vertexクラスを使用すると、法線またはテクスチャ座標を設定することもできます。
 
 ```cpp
-Obj obj;
+wow::Obj obj;
 
-Vertex vertex;
+wow::Vertex vertex;
 vertex.setPosition(0, 0, 0);
 vertex.setNormal(0, 0, -1);
 vertex.setTexCoord(0, 0);
@@ -55,7 +55,7 @@ obj.output("point");
 #include "obj.h"
 
 int main(){
-    Obj obj;
+    wow::Obj obj;
     obj.appendVertex(  0,   0, 0);
     obj.appendVertex(100,   0, 0);
     obj.appendVertex(100, 100, 0);

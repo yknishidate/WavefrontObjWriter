@@ -28,7 +28,7 @@ You can create a quad by writing as follows.
 #include "obj.h"
 
 int main(){
-    Obj obj;
+    wow::Obj obj;
     obj.appendVertex(  0,   0, 0);
     obj.appendVertex(100,   0, 0);
     obj.appendVertex(100, 100, 0);
