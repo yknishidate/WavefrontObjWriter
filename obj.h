@@ -45,27 +45,6 @@ public:
     Vec4i getIndices(){return indices;}
 };
 
-class Line{ 
-    std::int32_t numIndeces;
-    std::vector<std::int32_t> indices;
-
-public:
-    Line(){}
-
-    template <typename... Args>
-    Line(Args ...args) {
-        indices = {args...};
-        numIndeces = indices.size();
-    }
-
-    // for debug
-    void printIndices(){
-        for(int i=0; i<indices.size(); i++){
-            std::cout << indices[i] << " ";
-        } 
-    }
-
-};
 
 // Obj
 class Obj{
@@ -217,6 +196,37 @@ public:
     }
 };
 
+
+class Line{ 
+    std::int32_t numIndeces;
+    std::vector<std::int32_t> indices;
+
+public:
+    Line(){}
+
+    template <typename... Args>
+    Line(Args ...args) {
+        indices = {args...};
+        numIndeces = indices.size();
+    }
+    Line(std::vector<int> args) {
+        indices = args;
+        numIndeces = indices.size();
+    }
+
+    void appendIndex(int index){
+        indices.push_back(index);
+        numIndeces++;
+    }
+
+    // for debug
+    void printIndices(){
+        for(int i=0; i<indices.size(); i++){
+            std::cout << indices[i] << " ";
+        } 
+    }
+};
+
 class LineObj{
 private:
     std::vector<Vertex> vertices;
@@ -225,6 +235,43 @@ private:
 
 public:
     LineObj(): unusedVerticesCount(0){};
+
+    void appendVertex(const Vertex& vertex){
+        vertices.push_back(vertex);
+        unusedVerticesCount++;
+    }
+    void appendVertex(const Vec3& vec){
+        vertices.push_back(Vertex(vec.x, vec.y, vec.z));
+        unusedVerticesCount++;
+    }
+    void appendVertex(const float& x, const float& y, const float& z){
+        vertices.push_back(Vertex(x, y, z));
+        unusedVerticesCount++;
+    }
+
+    void appendLine(const Line& line){
+        lines.push_back(line);
+        unusedVerticesCount = 0;
+    }
+
+    template<typename ...Args>
+    void appendLine(Args ...args){
+        Line line(args...);
+        lines.push_back(line);
+        unusedVerticesCount = 0;
+    }
+
+    void closeLine(){
+        int numVertices = vertices.size();
+
+        Line line;
+        for(int i=unusedVerticesCount; i>=1; i--){
+            line.appendIndex(numVertices - i);
+        }
+        line.appendIndex(numVertices - unusedVerticesCount);
+        unusedVerticesCount = 0;
+    }
+
 };
 
 }
