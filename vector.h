@@ -340,10 +340,10 @@ public:
 
 class Vec4i{
 public:
-    int32_t x, y, z, w;
+    std::int32_t x, y, z, w;
 
-    Vec4i(const int32_t& n = 0): x(n), y(n), z(n), w(n){};
-    Vec4i(const int32_t& x, const int32_t& y, const int32_t& z, const int32_t& w): x(x), y(y), z(z), w(w){};
+    Vec4i(const std::int32_t& n = 0): x(n), y(n), z(n), w(n){};
+    Vec4i(const std::int32_t& x, const std::int32_t& y, const std::int32_t& z, const std::int32_t& w): x(x), y(y), z(z), w(w){};
 
         
     bool operator==(const Vec4i& vec){
@@ -403,25 +403,25 @@ public:
         return *this;
     }
 
-    // Vec4i + int32_t
-    Vec4i operator+(const int32_t& value){
+    // Vec4i + std::int32_t
+    Vec4i operator+(const std::int32_t& value){
         return Vec4i(x + value, y + value, z + value, w + value);
     }
 
-    Vec4i operator-(const int32_t& value){
+    Vec4i operator-(const std::int32_t& value){
         return Vec4i(x - value, y - value, z - value, w - value);
     }
 
-    Vec4i operator*(const int32_t& value){
+    Vec4i operator*(const std::int32_t& value){
         return Vec4i(x * value, y * value, z * value, w * value);
     }
 
-    Vec4i operator/(const int32_t& value){
+    Vec4i operator/(const std::int32_t& value){
         return Vec4i(x / value, y / value, z / value, w / value);
     }
 
-    // Vec4i += int32_t
-    Vec4i operator+=(const int32_t& value){
+    // Vec4i += std::int32_t
+    Vec4i operator+=(const std::int32_t& value){
         x += value;
         y += value;
         z += value;
@@ -429,7 +429,7 @@ public:
         return *this;
     }
 
-    Vec4i operator-=(const int32_t& value){
+    Vec4i operator-=(const std::int32_t& value){
         x -= value;
         y -= value;
         z -= value;
@@ -437,7 +437,7 @@ public:
         return *this;
     }
 
-    Vec4i operator*=(const int32_t& value){
+    Vec4i operator*=(const std::int32_t& value){
         x *= value;
         y *= value;
         z *= value;
@@ -445,7 +445,7 @@ public:
         return *this;
     }
 
-    Vec4i operator/=(const int32_t& value){
+    Vec4i operator/=(const std::int32_t& value){
         x /= value;
         y /= value;
         z /= value;

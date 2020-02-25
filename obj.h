@@ -29,11 +29,11 @@ public:
 
 
 class Face{
-    int32_t numIndices;
+    std::int32_t numIndices;
     Vec4i indices;
 
 public:
-    Face(const int32_t& v0, const int32_t& v1, const int32_t& v2, const int32_t& v3=-1)
+    Face(const std::int32_t& v0, const std::int32_t& v1, const std::int32_t& v2, const std::int32_t& v3=-1)
         : indices(v0, v1, v2, v3){
         if(v3 == -1) numIndices = 3;
         else         numIndices = 4;
@@ -49,7 +49,7 @@ class Obj{
 private:
     std::vector<Vertex> vertices;
     std::vector<Face> faces;
-    int32_t unusedVerticesCount;
+    std::int32_t unusedVerticesCount;
     bool texCoordEnabled;
     bool normalEnabled;
 
@@ -163,7 +163,7 @@ public:
         faces.push_back(face);
         unusedVerticesCount = 0;
     }
-    void appendFace(const int32_t& v0, const int32_t& v1, const int32_t& v2, const int32_t& v3=-1){
+    void appendFace(const std::int32_t& v0, const std::int32_t& v1, const std::int32_t& v2, const std::int32_t& v3=-1){
         faces.push_back(Face(v0, v1, v2, v3));
         unusedVerticesCount = 0;
     }
