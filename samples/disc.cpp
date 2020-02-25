@@ -1,8 +1,9 @@
 
-#define PI 3.14159265359
 #include <cmath>
 #include "../obj.h"
 using namespace wow;
+
+constexpr double PI = 3.14159265359;
 
 Obj createDisc(float rad=100, int div=32){
     Obj obj;
