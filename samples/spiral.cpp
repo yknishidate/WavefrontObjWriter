@@ -20,6 +20,7 @@ LineObj createSimpleSpiral(Vec3 startPoint = Vec3(0, 0, 0), float maxRad = 100, 
 
 
 LineObj createSpiral(Vec3 startPoint = Vec3(0, 0, 0), float maxRad = 100, float numLaps = 2, int segments = 128){
+    
     LineObj obj;
 
     float rad = 0;
@@ -31,7 +32,6 @@ LineObj createSpiral(Vec3 startPoint = Vec3(0, 0, 0), float maxRad = 100, float 
     }
     obj.finishLine();
     
-    // decoration
     int d = 10;
     for(int i=0; i<segments-d; i++){
         obj.appendLine(i, i+d);
