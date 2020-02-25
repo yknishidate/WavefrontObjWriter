@@ -6,3 +6,5 @@ heart.cpp
 
 *.obj
 *.exe
+
+*test*

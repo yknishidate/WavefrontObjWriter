@@ -45,12 +45,26 @@ public:
     Vec4i getIndices(){return indices;}
 };
 
-class Line{
+class Line{ 
     std::int32_t numIndeces;
     std::vector<std::int32_t> indices;
 
 public:
     Line(){}
+
+    template <typename... Args>
+    Line(Args ...args) {
+        indices = {args...};
+        numIndeces = indices.size();
+    }
+
+    // for debug
+    void printIndices(){
+        for(int i=0; i<indices.size(); i++){
+            std::cout << indices[i] << " ";
+        } 
+    }
+
 };
 
 // Obj
