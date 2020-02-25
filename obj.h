@@ -29,14 +29,16 @@ public:
 
 
 class Face{
-    std::int32_t numIndices;
-    Vec4i indices;
+    const std::int32_t numIndices;
+    const Vec4i indices;
 
 public:
-    Face(const std::int32_t& v0, const std::int32_t& v1, const std::int32_t& v2, const std::int32_t& v3=-1)
-        : indices(v0, v1, v2, v3){
-        if(v3 == -1) numIndices = 3;
-        else         numIndices = 4;
+    Face(const std::int32_t& v0, const std::int32_t& v1, const std::int32_t& v2)
+        : indices(v0, v1, v2, -1), numIndices(3){
+    }
+
+    Face(const std::int32_t& v0, const std::int32_t& v1, const std::int32_t& v2, const std::int32_t& v3)
+        : indices(v0, v1, v2, v3), numIndices(4){
     }
 
     int getNumIndices(){return numIndices;}
