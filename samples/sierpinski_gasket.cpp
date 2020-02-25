@@ -1,7 +1,7 @@
-#define PI 3.14159265359
 #include <cmath>
 #include "../obj.h"
 using namespace wow;
+constexpr double PI = 3.14159265359;
 
 void addSierpinskiGasket(Obj& obj, Vec2 startPoint = Vec2(0, 0), float len = 100, float minimum = 1){
     if(len < minimum) return;
