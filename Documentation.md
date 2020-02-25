@@ -69,3 +69,27 @@ int main(){
 ```
 
 - `appendFace()`にはインデックスを3つまたは4つ指定する必要があります。
+
+## Lineオブジェクト
+ポリゴンオブジェクトだけでなくラインオブジェクトにも対応しています。
+
+例えば、単純な円を作成するには以下のように記述できます。
+
+```cpp
+#include "obj.h"
+LineObj createCircle(float rad = 100, int segments = 128){
+    LineObj obj;
+
+    for(int i=0; i<segments; i++){
+        float x = cos(float(i)/segments * 2*PI) * rad;
+        float y = sin(float(i)/segments * 2*PI) * rad;
+        obj.appendVertex(x, y, 0);
+    }
+
+    obj.closeLine();
+    return obj;
+}
+```
+
+- `closeLine()`はいままでappendしたVertexをLineとして繋げます。その際に最後に追加したVertexと最初のVertexを繋げることでLineを閉じます。
+- `finishLine()`とすればLineを閉じずに作成できます。
