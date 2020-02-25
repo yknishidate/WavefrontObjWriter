@@ -43,6 +43,13 @@ public:
     Vec4i getIndices(){return indices;}
 };
 
+class Line{
+    std::int32_t numIndeces;
+    std::vector<std::int32_t> indices;
+
+public:
+    Line(){}
+};
 
 // Obj
 class Obj{
