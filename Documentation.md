@@ -91,5 +91,5 @@ LineObj createCircle(float rad = 100, int segments = 128){
 }
 ```
 
-- `closeLine()`はいままでappendしたVertexをLineとして繋げます。その際に最後に追加したVertexと最初のVertexを繋げることでLineを閉じます。
+- `closeLine()`はappendしたVertexをLineとして繋げます。その際に最後に追加したVertexと最初のVertexを繋げることでLineを閉じます。
 - `finishLine()`とすればLineを閉じずに作成できます。
