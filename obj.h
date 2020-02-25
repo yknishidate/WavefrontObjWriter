@@ -209,12 +209,12 @@ public:
         indices = {args...};
         numIndeces = indices.size();
     }
-    Line(std::vector<int> args) {
+    Line(std::vector<std::int32_t> args) {
         indices = args;
         numIndeces = indices.size();
     }
 
-    void appendIndex(int index){
+    void appendIndex(std::int32_t index){
         indices.push_back(index);
         numIndeces++;
     }
@@ -225,6 +225,9 @@ public:
             std::cout << indices[i] << " ";
         } 
     }
+
+    int getNumIndices() {return numIndeces;}
+    std::vector<int>& getIndices(){return indices;}
 };
 
 class LineObj{
@@ -269,7 +272,51 @@ public:
             line.appendIndex(numVertices - i);
         }
         line.appendIndex(numVertices - unusedVerticesCount);
+        lines.push_back(line);
         unusedVerticesCount = 0;
+    }
+
+    void finishLine(){
+        int numVertices = vertices.size();
+        std::cout << "All    Vertices: " << numVertices << std::endl;
+        std::cout << "Unused Vertices: " << unusedVerticesCount << std::endl;
+
+        Line line;
+        for(int i=unusedVerticesCount; i>=1; i--){
+            line.appendIndex(numVertices - i);
+        }
+        lines.push_back(line);
+        unusedVerticesCount = 0;
+    }
+
+    void output(const std::string& filename){
+        std::ofstream file(filename + ".obj");
+
+        file << "# WaveFront *.obj file" << std::endl;
+        file << "o " << filename << std::endl;
+
+        int numVertices = vertices.size();
+        // Position
+        for(int i=0; i<numVertices; i++){
+            Vec3 position = vertices[i].getPosition();
+            file << std::fixed;
+            file << "v " << position.x << " " << position.y << " " << position.z << std::endl;
+        }
+        file << "# " << numVertices << " vertices." << std::endl;
+
+        // Line
+        int numLines = lines.size();
+        for(int i=0; i<numLines; i++){
+            // int numIndices = lines[i].getNumIndices();
+            auto indices = lines[i].getIndices();
+            file << "l ";
+            for(int i=0; i<indices.size(); i++){
+                file << indices[i] + 1 << " ";
+            }
+            file << std::endl;
+        }
+        file << "# " << numLines << " lines." << std::endl;
+
     }
 
 };

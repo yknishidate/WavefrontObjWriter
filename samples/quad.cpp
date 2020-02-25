@@ -1,4 +1,3 @@
-#define PI 3.14159265359
 #include <cmath>
 #include "../obj.h"
 using namespace wow;

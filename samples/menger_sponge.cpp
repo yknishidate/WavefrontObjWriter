@@ -1,8 +1,7 @@
-#define PI 3.14159265359
-
 #include <cmath>
 #include "../obj.h"
 using namespace wow;
+constexpr double PI = 3.14159265359;
 
 void addCube(Obj &obj, Vec3 centerPoint, float size, int &index){
     obj.appendVertex(centerPoint + Vec3(-1.0, -1.0, -1.0) * size);

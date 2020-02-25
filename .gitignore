@@ -3,6 +3,7 @@ images/
 
 sierpinski_carpet.cpp
 heart.cpp
+helix.cpp
 
 *.obj
 *.exe
