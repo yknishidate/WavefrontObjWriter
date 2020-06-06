@@ -29,8 +29,8 @@ public:
 
 
 class Face{
-    const std::int32_t numIndices;
-    const Vec4i indices;
+  const Vec4i indices;
+  const std::int32_t numIndices;
 
 public:
     Face(const std::int32_t& v0, const std::int32_t& v1, const std::int32_t& v2)
@@ -186,7 +186,7 @@ public:
             std::exit(EXIT_FAILURE);
         }
     }
-    
+
     void enableTextureCoordinates(const bool& arg = true){
         texCoordEnabled = arg;
     }
@@ -197,7 +197,7 @@ public:
 };
 
 
-class Line{ 
+class Line{
     std::int32_t numIndeces;
     std::vector<std::int32_t> indices;
 
@@ -221,9 +221,9 @@ public:
 
     // for debug
     void printIndices(){
-        for(int i=0; i<indices.size(); i++){
+        for(int i=0; i<(int)  indices.size(); i++){
             std::cout << indices[i] << " ";
-        } 
+        }
     }
 
     int getNumIndices() {return numIndeces;}
@@ -310,7 +310,7 @@ public:
             // int numIndices = lines[i].getNumIndices();
             auto indices = lines[i].getIndices();
             file << "l ";
-            for(int i=0; i<indices.size(); i++){
+            for(int i=0; i<(int)indices.size(); i++){
                 file << indices[i] + 1 << " ";
             }
             file << std::endl;
