@@ -165,6 +165,24 @@ public:
         faces.push_back(face);
         unusedVerticesCount = 0;
     }
+    std::vector<Vertex>* getVertices() {
+      return &this->vertices;
+    }
+    Vertex* getVertex(int i) {
+      return &this->vertices[i];
+    }
+    std::vector<Face>* getFaces() {
+      return &this->faces;
+    }
+    Face* getFace(int i) {
+      return &this->faces[i];
+    }
+    int getFaceCount() {
+      return this->faces.size();
+    }
+    int getVertexCount() {
+      return this->vertices.size();
+    }
     void appendFace(const std::int32_t& v0, const std::int32_t& v1, const std::int32_t& v2, const std::int32_t& v3=-1){
         faces.push_back(Face(v0, v1, v2, v3));
         unusedVerticesCount = 0;

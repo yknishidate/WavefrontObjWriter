@@ -105,7 +105,7 @@ public:
     Vec3(const float& x, const float& y, const float& z): x(x), y(y), z(z){};
 
     bool operator==(const Vec3& vec){
-    return (fabs(x - vec.x) <= FLT_EPSILON) 
+    return (fabs(x - vec.x) <= FLT_EPSILON)
             && (fabs(y - vec.y) <= FLT_EPSILON)
             && (fabs(z - vec.z) <= FLT_EPSILON);
     }
@@ -203,6 +203,26 @@ public:
         return *this;
     }
 
+    Vec3 cross(Vec3 b) {
+      return Vec3(y*b.z-z*b.y,
+                  z*b.x-x*b.z,
+                  x*b.y-y*b.x);
+    }
+
+    float dot(Vec3 b) {
+      return x*b.x+y*b.y+z*b.z;
+    }
+
+    float norm() {
+      return sqrt(pow(x,2)+pow(y,2)+pow(z,2));
+    }
+
+    float angleTo(Vec3 vec, Vec3 perp) {
+      float angle = acos(this->dot(vec)/(this->norm()*vec.norm()));
+      if (vec.dot(perp) < 0)
+        angle = 2*M_PI - angle;
+      return angle;
+    }
 
     friend std::ostream& operator<<(std::ostream& os, const Vec3& vec){
         os << vec.x << ", " << vec.y << ", " << vec.z;
@@ -218,9 +238,9 @@ public:
     Vec4(const float& n = 0): x(n), y(n), z(n), w(n){};
     Vec4(const float& x, const float& y, const float& z, const float& w): x(x), y(y), z(z), w(w){};
 
-        
+
     bool operator==(const Vec4& vec){
-        return (fabs(x - vec.x) <= FLT_EPSILON) 
+        return (fabs(x - vec.x) <= FLT_EPSILON)
                 && (fabs(y - vec.y) <= FLT_EPSILON)
                 && (fabs(z - vec.z) <= FLT_EPSILON)
                 && (fabs(w - vec.w) <= FLT_EPSILON);
@@ -345,7 +365,7 @@ public:
     Vec4i(const std::int32_t& n = 0): x(n), y(n), z(n), w(n){};
     Vec4i(const std::int32_t& x, const std::int32_t& y, const std::int32_t& z, const std::int32_t& w): x(x), y(y), z(z), w(w){};
 
-        
+
     bool operator==(const Vec4i& vec){
         return x == vec.x && y == vec.y && z == vec.z && w == vec.w;
     }
