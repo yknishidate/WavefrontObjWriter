@@ -269,7 +269,12 @@ public:
         vertices.push_back(Vertex(x, y, z));
         unusedVerticesCount++;
     }
-
+    Vertex* getVertex(int i) {
+      return &this->vertices[i];
+    }
+    int getVertexCount() {
+      return this->vertices.size();
+    }
     void appendLine(const Line& line){
         lines.push_back(line);
         unusedVerticesCount = 0;

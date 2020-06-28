@@ -94,6 +94,14 @@ public:
         os << vec.x << ", " << vec.y;
         return os;
     }
+
+    float dot(Vec2 b) {
+      return x*b.x+y*b.y;
+    }
+
+    float norm() {
+      return sqrt(pow(x,2)+pow(y,2));
+    }
 };
 
 
