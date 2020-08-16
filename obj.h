@@ -29,8 +29,8 @@ public:
 
 
 class Face{
-  const Vec4i indices;
-  const std::int32_t numIndices;
+  Vec4i indices;
+  std::int32_t numIndices;
 
 public:
     Face(const std::int32_t& v0, const std::int32_t& v1, const std::int32_t& v2)
@@ -43,6 +43,13 @@ public:
 
     int getNumIndices(){return numIndices;}
     Vec4i getIndices(){return indices;}
+
+    void setIndices(Vec4i indices) {
+      this->indices.x = indices.x;
+      this->indices.y = indices.y;
+      this->indices.z = indices.z;
+      this->indices.w = indices.w;
+    }
 };
 
 
@@ -165,6 +172,9 @@ public:
         faces.push_back(face);
         unusedVerticesCount = 0;
     }
+    void removeFace(int i) {
+      faces.erase(faces.begin()+i);
+    }
     std::vector<Vertex>* getVertices() {
       return &this->vertices;
     }
@@ -269,7 +279,12 @@ public:
         vertices.push_back(Vertex(x, y, z));
         unusedVerticesCount++;
     }
-
+    Vertex* getVertex(int i) {
+      return &this->vertices[i];
+    }
+    int getVertexCount() {
+      return this->vertices.size();
+    }
     void appendLine(const Line& line){
         lines.push_back(line);
         unusedVerticesCount = 0;

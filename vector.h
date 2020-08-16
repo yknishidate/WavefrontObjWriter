@@ -90,6 +90,34 @@ public:
         return *this;
     }
 
+    // 2D cross product is not mathematically defined
+    // However, this implementation assumes both vectors as 3D vectors with z=0
+    // And returns the norm of the cross product between them
+    // This is useful for some geometrical applications
+    float cross(Vec2 b) {
+      return x*b.y-y*b.x;
+    }
+
+    float dot(Vec2 b) {
+      return x*b.x+y*b.y;
+    }
+
+    float norm() {
+      return sqrt(x*x+y*y);
+    }
+
+    Vec2 normalize() {
+      return (*this)/this->norm();
+    }
+
+    float dist(Vec2 to) {
+      return (to-*this).norm();
+    }
+
+    float angleTo(Vec2 vec) {
+      return acos(this->dot(vec)/(this->norm()*vec.norm()));
+    }
+
     friend std::ostream& operator<<(std::ostream& os, const Vec2& vec){
         os << vec.x << ", " << vec.y;
         return os;
@@ -214,7 +242,15 @@ public:
     }
 
     float norm() {
-      return sqrt(pow(x,2)+pow(y,2)+pow(z,2));
+      return sqrt(x*x+y*y+z*z);
+    }
+
+    Vec3 normalize() {
+      return (*this)/this->norm();
+    }
+
+    float dist(Vec3 to) {
+      return (to-*this).norm();
     }
 
     float angleTo(Vec3 vec, Vec3 perp) {
